@@ -1,6 +1,6 @@
 let web3 = Web3 | undefined;
 
-export async function authentication() {  
+async function authentication() {  
     web3 = Web3 | undefined;
     if (!web3) {
         try {
@@ -24,7 +24,7 @@ export async function authentication() {
     }
 }
 
-export async function getBalance(){    
+async function getBalance(){    
     await authentication();
     console.log(web3.givenProvider.selectedAddress)
     web3.eth.getBalance(web3.givenProvider.selectedAddress, function (err, result) {
@@ -36,7 +36,7 @@ export async function getBalance(){
     });
 }
 
-export async function sendTransaction(){
+async function sendTransaction(){
     await authentication();
 
     let addressTo = document.getElementById("to").value;
